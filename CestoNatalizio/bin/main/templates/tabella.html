@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.gameImg{
+	width: 25%
+}
+.row{
+	display:inline-block;
+	}
+.col{
+	display:inline-block;
+	}
+	    table {
+  width: 100%;
+  table-layout: fixed; 
+  border-collapse: collapse; 
+}
+	
+</style>
+</head>
+<body>
+<div class="container">
+	<form action="/buy" method="GET">
+		<table id=tb>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>marca</th>
+					<th>Prezzo</th>
+					<th>Luogo</th>
+					<th>Url</th>
+					<th>Seleziona quantità</th>
+				</tr>
+			</thead>
+			
+		<tbody>
+			
+			<tr th:each="prodotto : ${listaP}">
+				<td th:text="${prodotto.nome}"></td>
+				<td th:text="${prodotto.marca}"></td>
+				
+				<td th:text="${prodotto.prezzo}"></td>
+				<td th:text="${prodotto.luogo}"></td>
+				<td><img th:src="${prodotto.immagine}" class=gameImg></td>
+				<td><input type = "number" name = "selected" value = "0"> </td>
+			</tr>
+		
+		</tbody>
+		</table>
+	
+	<input type="submit">
+
+</div>
+</body>
+</html>

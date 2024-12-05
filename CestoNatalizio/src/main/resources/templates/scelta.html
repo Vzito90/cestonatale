@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+	width: 25%
+}
+.row{
+	display:inline-block;
+	}
+.col{
+	display:inline-block;
+	}
+	    table {
+  width: 100%;
+  table-layout: fixed; 
+  border-collapse: collapse; 
+}
+	
+</style>
+</head>
+<body>
+<div class="container">
+	   <form action="selected" method="GET">
+		<table id=tb>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>marca</th>
+					<th>Prezzo</th>
+					<th>luogo</th>
+					<th>immagine</th>
+					<th>quantita</th>
+					
+				</tr>
+			</thead>
+	<tbody>
+	
+			<tr th:each="prodotti : ${listaA}">
+				<td th:text="${prodotti.nome}"></td>
+				<td th:text="${prodotti.marca}"></td>
+				<td th:text="${prodotti.prezzo}"></td>
+				<td th:text="${prodotti.luogo}"></td>
+				<td><img th:src="${prodotti.immagine}"></td>
+				<td th:text="${prodotti.quantita}"></td>
+				<td></td>
+			</tr>
+		
+		</tbody>
+		</table>
+	
+	
+
+	
+
+            
+                <p th:each="cesto : ${listaC}">
+                    <label>
+                        <!-- Crea un radio button per ogni colore -->
+                        
+                        <input type="radio" name="group1" th:value ="${cesto.prezzo}" />
+                        <span th:text="${cesto.nome}"></span>
+                    </label>
+                </p>
+            
+            <input type="submit" value="Submit" />
+        </form>
+   </div> 
+
+        
+
+</body>
+</html>
